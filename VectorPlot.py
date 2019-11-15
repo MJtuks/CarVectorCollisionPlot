@@ -1,9 +1,9 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-halfCarLength = 0.2
-vehicle1 = (3, 0.075) #(pi1=initialPosition, v1=calculatedVelocity)
-vehicle2 = (0, 0.2) #(pi1=initialPosition, v1=calculatedVelocity)
+halfCarLength = 0.15
+vehicle1 = (3, 0.1) #(pi1=initialPosition, v1=calculatedVelocity)
+vehicle2 = (0, 0.3) #(pi1=initialPosition, v1=calculatedVelocity)
 
 time = np.arange(0, 40, 1)
 
@@ -15,8 +15,8 @@ vehicle2Position_1 = time*vehicle2[1] + vehicle2[0]+halfCarLength
 vehicle1Position_2 = time*vehicle1[1] + vehicle1[0]-halfCarLength
 vehicle2Position_2 = time*vehicle2[1] + vehicle2[0]-halfCarLength
 
-#collideTime = (vehicle2[0]-vehicle1[0])/(vehicle1[1]-vehicle2[1])
-#collidePosition = vehicle1[1]*collideTime + vehicle1[0]
+collideTime = (vehicle2[0]-vehicle1[0])/(vehicle1[1]-vehicle2[1])
+collidePosition = vehicle1[1]*collideTime + vehicle1[0]
 
 #plotting the upper and lower position line for every vehicle
 plt.plot(time, vehicle1Position_1, color='b', alpha=0.1)
@@ -35,4 +35,4 @@ plt.title("Collision Zone")
 plt.xlabel("Time (s)")
 plt.ylabel("Position (m)")
 
-#print(collidePosition)
+print(collidePosition)
